@@ -1,8 +1,0 @@
-br\tec\db\tests\model\ViaCep.class
-br\tec\db\tests\data\provider\ViaCepDataProvider.class
-br\tec\db\tests\client\ViaCepClient.class
-br\tec\db\tests\utils\FakerUtils.class
-br\tec\db\tests\specs\InitialViaCepSpecs.class
-br\tec\db\tests\utils\Manipulation.class
-br\tec\db\tests\model\responses\ErrorResponse.class
-br\tec\db\tests\data\factory\ViaCepDataFactory.class
