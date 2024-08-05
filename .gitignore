@@ -1,6 +1,7 @@
 # IDE's
 .vscode
 .idea
+target
 
 # Ignorar applicaton properties
 src/main/resources/
