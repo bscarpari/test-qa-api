@@ -22,7 +22,7 @@ git clone https://github.com/bscarpari/test-qa-api.git
 2. Entre na pasta criada
 
 ```ssh
-cd db-qa-api
+cd test-qa-api
 ``` 
 
 3. Abra o projeto na IDE IntelliJ
