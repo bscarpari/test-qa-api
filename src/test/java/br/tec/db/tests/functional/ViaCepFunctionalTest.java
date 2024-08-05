@@ -13,7 +13,7 @@ public class ViaCepFunctionalTest {
 
     @Test
     @DisplayName("Validar contrato de endereço com CEP válido")
-    public void testValidCepContract() {
+    public void testValidCep() {
         var cep = "94135350";
 
         ViaCep viaCep = viaCepClient.getViaCep(cep)
@@ -40,7 +40,7 @@ public class ViaCepFunctionalTest {
 
     @Test
     @DisplayName("Validar contrato de endereço com CEP inválido")
-    public void testInvalidCepContract() {
+    public void testInvalidCep() {
         var cep = "94135351";
 
         ErrorResponse erroResponse = viaCepClient.getViaCep(cep)
