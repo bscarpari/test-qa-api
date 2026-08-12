@@ -1,75 +1,149 @@
 <a name="readme-top"></a>
 
-# Desafio Técnico - API - QA
+<img alt="Header" width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=7B61FF&height=180&section=header&text=API%20Test%20Automation&fontSize=38&fontColor=ffffff&fontAlignY=32&desc=Java%2017%20%C2%B7%20REST%20Assured%20%C2%B7%20JUnit&descAlignY=52&descSize=16"/>
 
-![Intellij](https://img.shields.io/badge/Intellij-logo?style=flat-square&color=%23000000)
-![Java](https://img.shields.io/badge/JAVA_17-logo?style=flat-square&color=%23FF7800)
-![RestAssured](https://img.shields.io/badge/RestAssured-logo?style=flat-square&color=%234EA94B)
-![Junit](https://img.shields.io/badge/Junit-logo?style=flat-square&color=%2314692E)
-![Lombok](https://img.shields.io/badge/Lombok-logo?style=flat-square&color=grey)
+<h3 align="center">Automated API testing with Java, REST Assured and JUnit</h3>
 
-Este projeto consiste em um desafio técnico para demonstrar conhecimentos acerca de Automação de Testes em API. A API de
-exemplo a ser utilizada é [ViaCEP](https://viacep.com.br/ws/CEP/json).
+<p align="center">
+  <a href="https://www.linkedin.com/in/bscarpari/">
+    <img alt="Made by" src="https://img.shields.io/badge/-Bruno%20Scarpari-blue?style=flat-square&logo=Linkedin&logoColor=white">
+  </a>
 
-## Rodar o projeto localmente
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/bscarpari/test-qa-api?style=flat-square">
 
-1. Clone o repositorio
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/bscarpari/test-qa-api?style=flat-square">
 
-```ssh
-git clone https://github.com/bscarpari/test-qa-api.git
+  <a href="https://github.com/bscarpari/test-qa-api/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/bscarpari/test-qa-api?style=flat-square">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/github/license/bscarpari/test-qa-api?style=flat-square">
+</p>
+
+<p align="center">
+  <a href="#-about">About</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-coverage">Coverage</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-getting-started">Getting started</a>
+</p>
+
+---
+
+## 🌐 About
+
+Automated test suite for a public REST API, written in **Java 17** with **REST Assured** and **JUnit**.
+
+The suite validates response status, payload structure and error handling against [ViaCEP](https://viacep.com.br/ws/CEP/json), a Brazilian postal-code lookup service. Environment configuration is externalized, so the base URL is never hardcoded into the tests.
+
+<sub>Originally solved as a technical challenge.</sub>
+
+---
+
+## 🚀 Technologies
+
+![Java](https://img.shields.io/badge/Java%2017-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![REST Assured](https://img.shields.io/badge/REST%20Assured-4EA94B?style=for-the-badge&logo=java&logoColor=white)
+![JUnit](https://img.shields.io/badge/JUnit-25A162?style=for-the-badge&logo=junit5&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-BC0000?style=for-the-badge&logo=java&logoColor=white)
+
+- **Java 17** — language and runtime
+- **REST Assured** — fluent API for HTTP requests and response assertions
+- **JUnit** — test lifecycle and assertions
+- **Lombok** — boilerplate reduction in POJOs and response models
+- **Maven** — build and test execution
+
+---
+
+## 🧪 Coverage
+
+| Scenario | Description |
+|----------|-------------|
+| Valid postal code | Returns `200` with the expected address fields correctly populated |
+| Invalid postal code | Returns the documented error response instead of a valid address |
+
+<!-- PLACEHOLDER: cenários que valem adicionar — cada um vira uma linha acima.
+     - Malformed CEP (letras, tamanho errado) → 400
+     - Non-existent but well-formed CEP → resposta de erro
+     - Response time dentro de threshold
+     - Contrato: presença e tipo de cada campo do payload -->
+
+**Structure**
+
+```plaintext
+src/
+├── main/
+│   └── resources/
+│       └── application.properties   # base URL (not versioned)
+└── test/
+    └── java/                        # test classes
 ```
 
-2. Entre na pasta criada
+---
 
-```ssh
+## 💻 Getting started
+
+**Requirements**
+
+| Tool | Version |
+|------|---------|
+| Java (JDK) | 17 |
+| Maven | 3.8+ |
+| IntelliJ IDEA | any recent version |
+
+**1. Clone the repository**
+
+```bash
+git clone https://github.com/bscarpari/test-qa-api.git
 cd test-qa-api
-``` 
+```
 
-3. Abra o projeto na IDE IntelliJ
+**2. Open the project in IntelliJ IDEA**
 
-4. Certifique de configurar o SDK do projeto para Java 17
+**3. Set the project SDK to Java 17**
 
 ```text
 File > Project Structure > Project > Project SDK > 17
 ```
 
-5. Crie um arquivo chamado `application.properties` na pasta `src/main/resources` e adicione este exato trecho de
-   código:
+**4. Create the configuration file**
+
+Create `src/main/resources/application.properties` with:
 
 ```properties
 BASE_URL=https://viacep.com.br
 ```
 
-5. Para rodar todos os testes de uma só vez:
+> This file is not versioned, so each environment can point to a different base URL.
 
-```text
-a. Acesse a dependência lateral direita escrita "Maven"
-b. Abra o Lifecycle
-c. Execute o comando "test"
+**5. Run the tests**
+
+Via terminal:
+
+```bash
+mvn test
 ```
 
-## Responsável
+Or through the IDE:
 
-<table>
-    <tr>
-      <td align="center">
-        <a href="https://github.com/bscarpari">
-          <img src="https://avatars.githubusercontent.com/u/53575457?v=4" width="100px;" /><br>
-          <sub>
-            <b>Bruno Scarpari</b>
-          </sub>
-        </a>
-      </td>
-    </tr>
-</table>
+```text
+Maven panel (right sidebar) > Lifecycle > test
+```
 
-## Cobertura de testes
+---
 
-- [X] Cenário 1: Cep Válido
-- [X] Cenário 2: Cep Inválido
-
-## Licença
+## 📄 License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-<p align="right">(<a href="#readme-top">voltar para o topo</a>)</p>
+---
+
+<p align="center">
+  Made with 💜 by <a href="https://www.linkedin.com/in/bscarpari/">Bruno Scarpari</a> ·
+  <a href="https://github.com/bscarpari">GitHub</a> ·
+  <a href="mailto:bscarpari.dev@gmail.com">Email</a>
+</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<img alt="Footer" width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=7B61FF&height=100&section=footer"/>
